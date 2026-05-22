@@ -1,0 +1,430 @@
+/* Hero section */ 
+.hero {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  display: grid;
+  grid-template-columns: 1.2fr 1.1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "text card"
+    "stats card";
+  align-items: start;
+  gap: 38px;
+  padding: 72px 56px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 64px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(47, 93, 107, 0.6) 0%, transparent 70%);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+  padding-top: 24px;
+  max-width: 560px;
+}
+
+.hero-title {
+  font-size: clamp(42px, 5vw, 64px);
+  color: var(--text-light);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero-subtitle {
+  color: rgba(249, 250, 251, 0.88);
+  font-size: 19px;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.search-box {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  margin-bottom: 28px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 18px 22px;
+  border: none;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.search-box button {
+  background: var(--accent);
+  color: #fff;
+  padding: 18px 32px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+
+.search-box button:hover {
+  background: var( --danger);
+}
+
+.hero-card {
+  position: relative;
+  z-index: 1;
+  grid-area: card;
+  align-self: center;
+}
+
+.hero-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 4/3;
+  min-height: 360px;
+  background: var(--primary-light);
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-quote {
+  position: absolute;
+  bottom: -24px;
+  left: -24px;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-lg);
+  max-width: 280px;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-8px)
+  }
+}
+
+.hero-quote p {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.hero-quote .quote-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+#quoteText {
+  transition: opacity 0.5s;
+}
+
+/* Destination of the day section */
+.destination-of-the-day {
+  padding: 80px 0;
+  background: var(--bg-soft);
+}
+
+.destination-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.destination-card-image {
+  background: var(--secondary);
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.destination-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.destination-card:hover .destination-card-image img {
+  transform: scale(1.06);
+}
+
+.info {
+  background: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.country {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.desc {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Popular Destinations */
+.popular-destinations {
+  padding: 80px 0;
+}
+
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.popular-destination-card {
+  cursor: pointer;
+}
+
+.popular-destination-card-img {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+}
+
+.popular-destination-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.popular-destination-card:hover .popular-destination-card-img img {
+  transform: scale(1.08);
+}
+
+.popular-destination-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 30, 37, 0.8) 0%, transparent 60%);
+}
+
+.popular-destination-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.popular-destination-card-body {
+  padding: 16px;
+}
+
+.popular-destination-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--primary);
+}
+
+.popular-destination-card-country {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.popular-destinations .container {
+  text-align: center;
+}
+
+.popular-destinations .button-outline {
+  margin: 40px auto 0;
+}
+
+.footer {
+  padding: 80px 24px 60px;
+  margin-top: 60px;
+}
+
+/* Destination Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform var(--transition);
+}
+
+.modal-overlay.open .modal-box {
+  transform: scale(1);
+}
+
+.modal-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 32px;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.modal-country {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.modal-body h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 20px 0 10px;
+}
+
+.modal-body p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.modal-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-body ul li::before {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.modal-table th {
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.modal-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.modal-table tr:last-child td {
+  border-bottom: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--accent);
+}
+
+.modal-img-wrap {
+  position: relative;
+}
