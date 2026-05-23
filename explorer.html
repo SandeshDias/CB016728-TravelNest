@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Find Your Next Adventure</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="explorer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="explorer.html" class="nav-link active">Explorer</a></li>
+                <li><a href="budget.html" class="nav-link">Budget Planner</a></li>
+                <li><a href="generator.html" class="nav-link">Random Trip</a></li>
+                <li><a href="moods.html" class="nav-link">Travel Moods</a></li>
+                <li><a href="feedback.html" class="nav-link">Support</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav-mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="explorer.html" class="nav-link-mobile">Explorer</a>
+            <a href="budget.html" class="nav-link-mobile">Budget Planner</a>
+            <a href="generator.html" class="nav-link-mobile">Random Trip</a>
+            <a href="moods.html" class="nav-link-mobile">Travel Moods</a>
+            <a href="feedback.html" class="nav-link-mobile">Support</a>
+        </div>
+    </header>
+    <!-- Explorer Hero Section -->
+    <section class="explorer-hero">
+        <div class="container">
+            <h1>Explore Destinations</h1>
+            <p>Find your perfect place to travel</p>
+            <div class="explorer-filter">
+                <div class="explorer-search">
+                    <label for="searchDestination" class="sr-only">Search destinations</label>
+                    <input type="text" id="searchDestination" placeholder="Search destinations..." oninput="filterDestinations()">
+                    <button>🔍</button>
+                </div>
+                <select id="continentFilter" class="filter-select" onchange="filterDestinations()">
+                    <option value="">All Continents</option>
+                    <option>Europe</option>
+                    <option>Asia</option>
+                    <option>North America</option>
+                    <option>South America</option>
+                    <option>Africa</option>
+                    <option>Oceania</option>
+                </select>
+                <button class="filter-reset" onclick="resetFilter()">Reset</button>
+            </div>
+        </div>
+    </section>
+    <!-- Explorer Body -->
+    <section class="explorer-body">
+        <div class="container">
+            <div class="destination-grid" id="destinationGrid"></div>
+            <div class="no-result" id="noResult">No destinations found. Try different filters.</div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </section>
+     <!-- Destination Modal -->
+    <div class="modal-overlay" id="destModal">
+        <div class="modal-box">
+            <div class="modal-img-wrap">
+                <img src="" alt="Destinations" class="modal-img" id="modalImg">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-country" id="modalCountry"></div>
+                <p id="modalDestination"></p>
+                <h4>Popular Attractions</h4>
+                <ul id="modalAttractions"></ul>
+                <h4>Travel Cost Comparison</h4>
+                <table class="modal-table" id="modalCostTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Budget</th>
+                            <th>Mid-range</th>
+                            <th>Luxury</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modalCostBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+                <div>
+                    <p>Explore More. Experience More. Your ultimate travel companion for discovering the world's most breathtaking destinations.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="explorer.html">Explorer</a></li>
+                    <li><a href="budget.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Random Trip</a></li>
+                    <li><a href="moods.html">Travel Moods</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <p>Subscribe to get special offers and travel tips!</p>
+                <form onsubmit="newsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="data.js"></script>
+    <script src="explorer.js"></script>
+</body>
+</html>
