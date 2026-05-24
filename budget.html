@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Find Your Next Adventure</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="budget.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="explorer.html" class="nav-link">Explorer</a></li>
+                <li><a href="budget.html" class="nav-link active">Budget Planner</a></li>
+                <li><a href="generator.html" class="nav-link">Random Trip</a></li>
+                <li><a href="moods.html" class="nav-link">Travel Moods</a></li>
+                <li><a href="feedback.html" class="nav-link">Support</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav-mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="explorer.html" class="nav-link-mobile">Explorer</a>
+            <a href="budget.html" class="nav-link-mobile">Budget Planner</a>
+            <a href="generator.html" class="nav-link-mobile">Random Trip</a>
+            <a href="moods.html" class="nav-link-mobile">Travel Moods</a>
+            <a href="feedback.html" class="nav-link-mobile">Support</a>
+        </div>
+    </header> 
+    <!-- Budget Planner Hero Section -->
+    <section class="budget-hero">
+        <div class="container">
+            <h1>Trip Budget Planner</h1>
+            <p>Plan your budget and travel smart</p>
+        </div>
+    </section>
+    <!-- Budget Planner Body -->
+    <section class="budget-body">
+        <div class="container">
+            <div class="budget-grid">
+                <div class="budget-form">
+                    <h3>Plan Your Trip</h3>
+                    <form id="budgetForm" onsubmit="calculatBudget(event)">
+                        <div class="form-group">
+                            <label for="budgetDest" class="form-label">Destination</label>
+                            <select id="budgetDest" class="form-input">
+                                <option value="">Select a destination...</option>
+                            </select>
+                            <div class="form-error" id="errDest"> Please select a destination.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetDays" class="form-label">Number of Days</label>
+                            <input type="number" class="form-input" id="budgetDays" min="1" max="365" placeholder="e.g. 7" required>
+                            <div class="form-error" id="errDays">Please enter a valid number of days (1-365).</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetDaily" class="form-label">Daily Budget (USD)</label>
+                            <input type="number" class="form-input" id="budgetDaily" min="1" placeholder="e.g. 100" required>
+                            <div class="form-error" id="errDaily">Please enter a valid daily budget.</div>
+                        </div>
+                        <div class="budget-button">
+                            <button class=" button button-primary" type="submit">Calculate Budget</button>
+                            <button class=" button button-outline" type="button" onclick="resetBudget()">Reset</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="budget-result" id="budgetResult">
+                    <h3>Estimated Total Cost</h3>
+                    <div id="budgetResultContent" class="budget-result-content">
+                        <div class="budget-total">
+                            <div class="budget-total-label">Total Estimated Cost</div>
+                            <div class="budget-total-amount" id="budgetTotal">$0</div>
+                            <div class="budget-total-sub" id="budgetTotalSub"></div>
+                            <div class="budget-status" id="budgetStatus"></div>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <h4>Budget Category Breakdown</h4>
+                        <div class="budget-breakdown" id="budgetBreakdown"></div>
+                        <button class="button button-success" onclick="saveBudget()">Save This Plan</button>
+                    </div>
+                    <div id="budgetPlaceholder" class="budget-placeholder">
+                        <p>Fill in the form and click "Calculate Budget" to see your trip estimate.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Saved trips -->
+            <div class="saved-trips" id="savedTrips">
+                <h3>Saved Trip Plans</h3>
+                <div id="savedTripList" class="saved-trip-list">
+                    <p>No saved trips yet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+                <div>
+                    <p>Explore More. Experience More. Your ultimate travel companion for discovering the world's most breathtaking destinations.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="explorer.html">Explorer</a></li>
+                    <li><a href="budget.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Random Trip</a></li>
+                    <li><a href="moods.html">Travel Moods</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <p>Subscribe to get special offers and travel tips!</p>
+                <form onsubmit="newsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+      </footer>
+      <script src="main.js"></script>
+      <script src="data.js"></script>
+      <script src="budget.js"></script>
+</body>
+</html>
