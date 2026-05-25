@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Find Your Next Adventure</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="generator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="explorer.html" class="nav-link">Explorer</a></li>
+                <li><a href="budget.html" class="nav-link">Budget Planner</a></li>
+                <li><a href="generator.html" class="nav-link active">Random Trip</a></li>
+                <li><a href="moods.html" class="nav-link">Travel Moods</a></li>
+                <li><a href="feedback.html" class="nav-link">Support</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav-mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="explorer.html" class="nav-link-mobile">Explorer</a>
+            <a href="budget.html" class="nav-link-mobile">Budget Planner</a>
+            <a href="generator.html" class="nav-link-mobile">Random Trip</a>
+            <a href="moods.html" class="nav-link-mobile">Travel Moods</a>
+            <a href="feedback.html" class="nav-link-mobile">Support</a>
+        </div>
+    </header>
+    <!-- Trip generator Hero -->
+     <section class="generator-hero">
+        <div class="container">
+            <h1>Generate Your Next Adventure</h1>
+            <p>Discover amazing destinations with our random trip generator!</p>
+        </div>
+     </section>
+     <!-- Trip generator Body -->
+     <section class="generator-body">
+        <div class="container">
+            <div class="generator-grid">
+                <div class="generator-controls">
+                    <h3>Customize Your Trip</h3>
+                    <div class="form-group">
+                        <label for="travelType" class="form-label">Travel Type</label>
+                        <select id="travelType" class="form-input">
+                            <option value="">Any Type</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Relaxation">Relaxation</option>
+                            <option value="Entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budgetRange" class="form-label">Budget Range</label>
+                        <select id="budgetRange" class="form-input">
+                            <option value="">Any Budget</option>
+                            <option value="low">Low</option>
+                            <option value="mid">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <button class="surprise-button" id="surpriseButton" onclick="generatetrip()">Surprise Me!</button>
+                </div>
+                <div class="generator-result card" id="generatorResult">
+                    <div class="result-placeholder" id="resultplaceholder">
+                        <p>Click "Surprise Me!" to get a random destination</p>
+                    </div>
+                    <div id="resultContent">
+                        <img src="" alt="Generated destination" class="result-img" id="resultImg">
+                        <div class="result-body">
+                            <h2 class="result-name" id="resultName"></h2>
+                            <div class="result-country" id="resultCountry"></div>
+                            <p class="result-desc" id="resultDesc"></p>
+                            <div class="result-meta" id="resultMeta"></div>
+                            <div class="wishlist">
+                                <button class="wishlist-button" onclick="saveGeneratedToWishlist()">Save to Wishlist</button>
+                                <button class="surprise-button" onclick="generatetrip()">Surprise Me Again</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Wishlst -->
+             <div class="wishlist-section" id="wishlistSection">
+                <h3>My Wishlist</h3>
+                <div id="wishList">
+                    <p>No destinations saved yet.</p>
+                </div>
+             </div>
+        </div>
+     </section>
+    <!-- Footer -->
+<footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+                <div>
+                    <p>Explore More. Experience More. Your ultimate travel companion for discovering the world's most breathtaking destinations.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="explorer.html">Explorer</a></li>
+                    <li><a href="budget.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Random Trip</a></li>
+                    <li><a href="moods.html">Travel Moods</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <p>Subscribe to get special offers and travel tips!</p>
+                <form onsubmit="newsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer> 
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <script src="generator.js"></script>
+</body>
+</html>
