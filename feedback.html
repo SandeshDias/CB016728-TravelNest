@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest | Find Your Next Adventure</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="explorer.html" class="nav-link">Explorer</a></li>
+                <li><a href="budget.html" class="nav-link">Budget Planner</a></li>
+                <li><a href="generator.html" class="nav-link">Random Trip</a></li>
+                <li><a href="moods.html" class="nav-link">Travel Moods</a></li>
+                <li><a href="feedback.html" class="nav-link active">Support</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav-mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="explorer.html" class="nav-link-mobile">Explorer</a>
+            <a href="budget.html" class="nav-link-mobile">Budget Planner</a>
+            <a href="generator.html" class="nav-link-mobile">Random Trip</a>
+            <a href="moods.html" class="nav-link-mobile">Travel Moods</a>
+            <a href="feedback.html" class="nav-link-mobile">Support</a>
+        </div>
+    </header>
+    <!-- Feedback Hero -->
+     <section class="feedback-hero">
+        <div class="container">
+            <h1>We Value Your Feedback</h1>
+            <p>Help us improve your travel experience</p>
+        </div>
+     </section>
+     <!-- Feedback Body -->
+      <section class="feedback-body">
+        <div class="container">
+            <div class="feedback-grid">
+                <div class="feedback-form">
+                    <h3 id="feedbackFormHeading">Send Us a Message</h3>
+                    <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                        <div class="form-group">
+                            <label for="feedbackName" class="form-label">your Name</label>
+                            <input type="text" class="form-input" id="feedbackName" placeholder="John Doe">
+                            <div class="form-error" id="errFeedbackName">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                             <label class="form-label" for="feedbackEmail">Your Email</label>
+                            <input class="form-input" type="email" id="feedbackEmail" placeholder="john@example.com">
+                            <div class="form-error" id="errFeedbackEmail">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedbackSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-input" id="feedbackSubject" placeholder="How can we help?">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedbackMsg" class="form-label">Your Message</label>
+                            <textarea id="feedbackMsg" class="form-textarea" placeholder="Write your message here…"></textarea>
+                            <div class="form-error" id="errFeedbackMsg">Please enter your message.</div>
+                        </div>
+                        <button type="submit" class="button button-primary">Send message</button>
+                    </form>
+                    <div class="success-msg" id="feedbackSuccess">
+                        <span>✅</span>
+                        <span>Thank you! Your message has been sent successfully.</span>
+                    </div>
+                </div>
+                <div class="faq-section">
+                    <h3 id="faqHeading">FAQ</h3>
+                    <div id="faqContainer"></div>
+                </div>
+            </div>
+        </div>
+      </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2 class="logo"><a href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel <span>Nest</span></a></h2>
+                <div>
+                    <p>Explore More. Experience More. Your ultimate travel companion for discovering the world's most breathtaking destinations.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="explorer.html">Explorer</a></li>
+                    <li><a href="budget.html">Budget Planner</a></li>
+                    <li><a href="generator.html">Random Trip</a></li>
+                    <li><a href="moods.html">Travel Moods</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <p>Subscribe to get special offers and travel tips!</p>
+                <form onsubmit="newsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <script src="feedback.js"></script>
+</body>
+</html>
